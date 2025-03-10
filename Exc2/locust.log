@@ -1,0 +1,42 @@
+[2025-03-10 19:26:43,878] abardanov-Modern-14-C12M/INFO/locust.main: Starting Locust 2.33.1
+[2025-03-10 19:26:43,878] abardanov-Modern-14-C12M/INFO/locust.main: Starting web interface at http://0.0.0.0:8089, press enter to open your default browser.
+[2025-03-10 19:31:42,889] abardanov-Modern-14-C12M/INFO/locust.runners: Ramping to 1000 users at a rate of 10.00 per second
+[2025-03-10 19:33:21,962] abardanov-Modern-14-C12M/INFO/locust.runners: All users spawned: {"WebsiteUser": 1000} (1000 total users)
+[2025-03-10 19:44:41,295] abardanov-Modern-14-C12M/INFO/locust.runners: Ramping to 2000 users at a rate of 10.00 per second
+[2025-03-10 19:46:20,410] abardanov-Modern-14-C12M/INFO/locust.runners: All users spawned: {"WebsiteUser": 2000} (2000 total users)
+[2025-03-10 19:48:47,956] abardanov-Modern-14-C12M/INFO/locust.runners: Ramping to 1200 users at a rate of 10.00 per second
+[2025-03-10 19:50:07,021] abardanov-Modern-14-C12M/INFO/locust.runners: All users spawned: {"WebsiteUser": 1200} (1200 total users)
+[2025-03-10 19:53:54,187] abardanov-Modern-14-C12M/INFO/locust.runners: Ramping to 1500 users at a rate of 10.00 per second
+[2025-03-10 19:54:23,224] abardanov-Modern-14-C12M/INFO/locust.runners: All users spawned: {"WebsiteUser": 1500} (1500 total users)
+[2025-03-10 19:57:45,620] abardanov-Modern-14-C12M/INFO/locust.runners: Ramping to 1000 users at a rate of 10.00 per second
+[2025-03-10 19:58:34,669] abardanov-Modern-14-C12M/INFO/locust.runners: All users spawned: {"WebsiteUser": 1000} (1000 total users)
+KeyboardInterrupt
+2025-03-10T16:58:47Z
+[2025-03-10 19:58:47,928] abardanov-Modern-14-C12M/INFO/locust.main: Shutting down (exit code 1)
+Type     Name                                                                          # reqs      # fails |    Avg     Min     Max    Med |   req/s  failures/s
+--------|----------------------------------------------------------------------------|-------|-------------|-------|-------|-------|-------|--------|-----------
+GET      /                                                                             158989  7138(4.49%) |   2904       0  136569      1 |   98.40        4.42
+GET      /metrics                                                                      158128  7616(4.82%) |   2964       0  136566      3 |   97.86        4.71
+--------|----------------------------------------------------------------------------|-------|-------------|-------|-------|-------|-------|--------|-----------
+         Aggregated                                                                    317117 14754(4.65%) |   2934       0  136569      2 |  196.26        9.13
+
+Response time percentiles (approximated)
+Type     Name                                                                                  50%    66%    75%    80%    90%    95%    98%    99%  99.9% 99.99%   100% # reqs
+--------|--------------------------------------------------------------------------------|--------|------|------|------|------|------|------|------|------|------|------|------
+GET      /                                                                                       1      2      2      3      4    590  68000 134000 136000 136000 137000 158989
+GET      /metrics                                                                                3      3      4      4      6    850  68000 134000 136000 136000 137000 158128
+--------|--------------------------------------------------------------------------------|--------|------|------|------|------|------|------|------|------|------|------|------
+         Aggregated                                                                              2      3      3      4      5    720  68000 134000 136000 136000 137000 317117
+
+Error report
+# occurrences      Error                                                                                               
+------------------|---------------------------------------------------------------------------------------------------------------------------------------------
+2778               GET /: ConnectionResetError(104, 'Connection reset by peer')                                        
+2821               GET /metrics: ConnectionResetError(104, 'Connection reset by peer')                                 
+652                GET /metrics: RemoteDisconnected('Remote end closed connection without response')                   
+254                GET /: RemoteDisconnected('Remote end closed connection without response')                          
+1500               GET /: ConnectionRefusedError(111, 'Connection refused')                                            
+1489               GET /metrics: ConnectionRefusedError(111, 'Connection refused')                                     
+2654               GET /metrics: ConnectTimeoutError(<urllib3.connection.HTTPConnection object at 0x7d34c0c172f0>, 'Connection to 192.168.39.165 timed out. (connect timeout=None)')
+2606               GET /: ConnectTimeoutError(<urllib3.connection.HTTPConnection object at 0x7d34c86049e0>, 'Connection to 192.168.39.165 timed out. (connect timeout=None)')
+------------------|---------------------------------------------------------------------------------------------------------------------------------------------
