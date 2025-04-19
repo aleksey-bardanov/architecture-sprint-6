@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: scale-test-app-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: scale-test-app
+  template: 
+    metadata:
+      labels:
+        app: scale-test-app
+    spec:
+      containers:
+      - name: scale-test-app
+        image: shestera/scaletestapp:latest
+        resources:
+          limits:
+            memory: "30Mi"
